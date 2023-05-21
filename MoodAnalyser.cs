@@ -22,13 +22,17 @@ namespace ExceptionMoodAnalyser
 
             try
             {
-                if (message.Contains("happy", StringComparison.OrdinalIgnoreCase))
+               if (string.IsNullOrWhiteSpace(message))
                 {
-                    return "HAPPY";
+                    return "Happy Mood";
                 }
                 else if (message.Contains("sad", StringComparison.OrdinalIgnoreCase))
                 {
-                    return "SAD";
+                    return "Sad Mood";
+                }
+                else if (message.Contains("happy", StringComparison.OrdinalIgnoreCase))
+                {
+                    return "Happy Mood";
                 }
                 else
                 {
