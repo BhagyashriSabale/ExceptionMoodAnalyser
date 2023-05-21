@@ -10,6 +10,10 @@ namespace ExceptionMoodAnalyser
     internal class MoodAnalyser
     {
         private string message;
+        public MoodAnalyser()
+        {
+            message = "";
+        }
         public MoodAnalyser(string message)
         {
             this.message = message;

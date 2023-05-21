@@ -30,9 +30,14 @@
             //UC2
             MoodAnalyser moodAnalyser6 = new MoodAnalyser(null);
             string mood4 = moodAnalyser6.AnalyseMood(); //Throws exception because message cannot null
-            
 
-          
+            MoodAnalyser moodAnalyser7 = MoodAnalyserFactory.CreateMoodAnalyser();
+            moodAnalyser7.SetMessage("I am in Happy Mood");
+            string mood7 = moodAnalyser7.AnalyseMood();
+            Console.WriteLine($"Mood: {mood7}");//Output HAPPY
+
+
+
         }
     }
 }
