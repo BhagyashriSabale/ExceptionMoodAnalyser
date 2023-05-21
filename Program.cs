@@ -36,6 +36,9 @@
             string mood7 = moodAnalyser7.AnalyseMood();
             Console.WriteLine($"Mood: {mood7}");//Output HAPPY
 
+            MoodAnalyser moodAnalyser8 = MoodAnalyserFactory.CreateMoodAnalyser("I am in Excited Mood");
+            string mood8 = moodAnalyser8.AnalyseMood();
+            Console.WriteLine($"Mood: {mood8}");
 
 
         }
