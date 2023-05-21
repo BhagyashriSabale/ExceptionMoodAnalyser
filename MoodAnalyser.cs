@@ -20,11 +20,11 @@ namespace ExceptionMoodAnalyser
             {
                 if (message.Contains("happy", StringComparison.OrdinalIgnoreCase))
                 {
-                    return "Happy Mood";
+                    return "HAPPY";
                 }
                 else if (message.Contains("sad", StringComparison.OrdinalIgnoreCase))
                 {
-                    return "Sad Mood";
+                    return "SAD";
                 }
                 else
                 {
