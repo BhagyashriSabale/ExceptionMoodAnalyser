@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace ExceptionMoodAnalyser
 {
+    
     internal class MoodAnalyser
     {
         private string message;
@@ -22,9 +23,13 @@ namespace ExceptionMoodAnalyser
 
             try
             {
-               if (string.IsNullOrWhiteSpace(message))
+                if (message == null)
                 {
-                    return "Happy Mood";
+                    throw new MoodAnlayserException(MoodAnalysisError.NULL_MOOD, "Invalid mood. Message cannot be null.");
+                }
+                else if (string.IsNullOrWhiteSpace(message))
+                {
+                    throw new MoodAnlayserException(MoodAnalysisError.EMPTY_MOOD, "Invalid mood. Message cannot be empty or whitespace.");
                 }
                 else if (message.Contains("sad", StringComparison.OrdinalIgnoreCase))
                 {
@@ -36,7 +41,7 @@ namespace ExceptionMoodAnalyser
                 }
                 else
                 {
-                    throw new MoodAnlayserException("Unable to determine mood. Invalid message.");
+                    throw new MoodAnlayserException(MoodAnalysisError.INVALID_MOOD, "Unable to determine mood. Invalid message.");
                 }
             }
             catch (MoodAnlayserException ex)
@@ -45,5 +50,11 @@ namespace ExceptionMoodAnalyser
                 return "Error";
             }
         }
+    }
+    public enum MoodAnalysisError
+    {
+        NULL_MOOD,
+        EMPTY_MOOD,
+        INVALID_MOOD
     }
 }
