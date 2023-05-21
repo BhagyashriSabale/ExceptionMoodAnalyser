@@ -15,6 +15,17 @@
             string mood1 = moodAnalyser1.AnalyseMood();
             Console.WriteLine($"Mood: {mood}");
             Console.WriteLine($"Mood: {mood1}");
+
+            //Refactor1 With TC1
+            MoodAnalyser moodAnalyser3 = new MoodAnalyser(message);
+            MoodAnalyser moodAnalyser4 = new MoodAnalyser(message);
+            moodAnalyser3.SetMessage("No message provided");
+            string mood3 = moodAnalyser3.AnalyseMood();
+            string mood4 = moodAnalyser4.AnalyseMood();
+            Console.WriteLine($"Mood: {mood3}");
+            Console.WriteLine($"Mood: {mood4}");
+
+
             
 
         }

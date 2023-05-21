@@ -13,6 +13,10 @@ namespace ExceptionMoodAnalyser
         {
             this.message = message;
         }
+        public void SetMessage(string message)
+        {
+            this.message = message;
+        }
         public string AnalyseMood()
         {
 
