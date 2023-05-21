@@ -15,13 +15,26 @@ namespace ExceptionMoodAnalyser
         }
         public string AnalyseMood()
         {
-            if(this.message.Contains("Sad"))
+
+            try
             {
-                return "SAD";
+                if (message.Contains("happy", StringComparison.OrdinalIgnoreCase))
+                {
+                    return "Happy Mood";
+                }
+                else if (message.Contains("sad", StringComparison.OrdinalIgnoreCase))
+                {
+                    return "Sad Mood";
+                }
+                else
+                {
+                    throw new MoodAnlayserException("Unable to determine mood. Invalid message.");
+                }
             }
-            else
+            catch (MoodAnlayserException ex)
             {
-                return "HAPPY";
+                Console.WriteLine($"Error: {ex.Message}");
+                return "Error";
             }
         }
     }
