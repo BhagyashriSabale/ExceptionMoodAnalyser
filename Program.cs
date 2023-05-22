@@ -61,6 +61,17 @@
             {
                 Console.WriteLine($"Error: {ex.Message}");
             }
+            try
+            {
+                string className = "MoodAnalyser";
+                string methodName = "AnalyseMood";
+                string result = MoodAnalyserFactory.InvokeAnalyseMoodMethod(className, methodName);
+                Console.WriteLine($"Result: {result}");
+            }
+            catch (MoodAnlayserException ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
 
         }
     }

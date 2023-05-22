@@ -50,6 +50,33 @@ namespace ExceptionMoodAnalyser
                 throw new MoodAnlayserException(MoodAnalysisError.NO_SUCH_METHOD, ex.Message);
             }
         }
+        public static string InvokeAnalyseMoodMethod(string className, string methodName)
+        {
+            try
+            {
+                Type type = Type.GetType(className);
+                if (type == null)
+                {
+                    throw new MoodAnlayserException(MoodAnalysisError.NO_SUCH_CLASS, "No such class found.");
+                }
+                MethodInfo method = type.GetMethod(methodName);
+                if (method == null)
+                {
+                    throw new MoodAnlayserException(MoodAnalysisError.NO_SUCH_METHOD, "No such method found.");
+                }
+                object instance = Activator.CreateInstance(type);
+                object result = method.Invoke(instance, null);
+                return result.ToString();
+            }
+            catch (MoodAnlayserException)
+            {
+                throw;
+            }
+            catch (Exception ex)
+            {
+                throw new MoodAnlayserException(MoodAnalysisError.NO_SUCH_METHOD, ex.Message);
+            }
+        }
     }
-    
+
 }
