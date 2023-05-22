@@ -37,7 +37,7 @@
             string mood7 = moodAnalyser7.AnalyseMood();
             Console.WriteLine($"Mood: {mood7}");//Output HAPPY
 
-            //UC5
+            //UC5 with TC1
             MoodAnalyser moodAnalyser8 = MoodAnalyserFactory.CreateMoodAnalyser("I am in Excited Mood");
             string mood8 = moodAnalyser8.AnalyseMood();
             Console.WriteLine($"Mood: {mood8}");
@@ -45,7 +45,14 @@
             MoodAnalyser moodAnalyser10 = MoodAnalyserFactory.CreateMoodAnalyser("I am in Happy Mood");
             bool isEqual = moodAnalyser9.Equals(moodAnalyser10);
             Console.WriteLine($"Are the MoodAnalyser objects equal? {isEqual}");
-
+            try
+            {
+                MoodAnalyser moodAnalyser11 = MoodAnalyserFactory.CreateMoodAnalyser("InvalidClassName", "I am in Happy Mood");
+            }
+            catch (MoodAnlayserException ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
 
 
         }
