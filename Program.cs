@@ -53,7 +53,14 @@
             {
                 Console.WriteLine($"Error: {ex.Message}");
             }
-
+            try
+            {
+                MoodAnalyser moodAnalyser12 = MoodAnalyserFactory.CreateMoodAnalyser("MoodAnalyser", "I am in Happy Mood");
+            }
+            catch (MoodAnlayserException ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
 
         }
     }

@@ -35,7 +35,7 @@ namespace ExceptionMoodAnalyser
                 ConstructorInfo constructor = type.GetConstructor(new[] { typeof(string) });
                 if (constructor == null)
                 {
-                    throw new MoodAnlayserException(MoodAnalysisError.NO_SUCH_CLASS, "No such constructor found.");
+                    throw new MoodAnlayserException(MoodAnalysisError.NO_SUCH_METHOD, "No such constructor found.");
                 }
 
                 MoodAnalyser moodAnalyser = (MoodAnalyser)constructor.Invoke(new object[] { message });
@@ -47,7 +47,7 @@ namespace ExceptionMoodAnalyser
             }
             catch (Exception ex)
             {
-                throw new MoodAnlayserException(MoodAnalysisError.NO_SUCH_CLASS, ex.Message);
+                throw new MoodAnlayserException(MoodAnalysisError.NO_SUCH_METHOD, ex.Message);
             }
         }
     }

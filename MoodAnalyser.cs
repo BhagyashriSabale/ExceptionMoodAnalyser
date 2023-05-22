@@ -75,6 +75,7 @@ namespace ExceptionMoodAnalyser
         NULL_MOOD,
         EMPTY_MOOD,
         INVALID_MOOD,
-        NO_SUCH_CLASS
+        NO_SUCH_CLASS,
+        NO_SUCH_METHOD
     }
 }
