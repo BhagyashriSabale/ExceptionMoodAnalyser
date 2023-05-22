@@ -54,6 +54,21 @@ namespace ExceptionMoodAnalyser
                 return "Error";
             }
         }
+        public override bool Equals(object obj)
+        {
+            if (obj == null || GetType() != obj.GetType())
+            {
+                return false;
+            }
+
+            MoodAnalyser other = (MoodAnalyser)obj;
+            return this.message == other.message;
+        }
+        public override int GetHashCode()
+        {
+            return message.GetHashCode();
+        }
+
     }
     public enum MoodAnalysisError
     {

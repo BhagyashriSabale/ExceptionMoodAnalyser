@@ -31,14 +31,21 @@
             MoodAnalyser moodAnalyser6 = new MoodAnalyser(null);
             string mood4 = moodAnalyser6.AnalyseMood(); //Throws exception because message cannot null
 
+            //UC3 and UC4
             MoodAnalyser moodAnalyser7 = MoodAnalyserFactory.CreateMoodAnalyser();
             moodAnalyser7.SetMessage("I am in Happy Mood");
             string mood7 = moodAnalyser7.AnalyseMood();
             Console.WriteLine($"Mood: {mood7}");//Output HAPPY
 
+            //UC5
             MoodAnalyser moodAnalyser8 = MoodAnalyserFactory.CreateMoodAnalyser("I am in Excited Mood");
             string mood8 = moodAnalyser8.AnalyseMood();
             Console.WriteLine($"Mood: {mood8}");
+            MoodAnalyser moodAnalyser9 = MoodAnalyserFactory.CreateMoodAnalyser("I am in Happy Mood");
+            MoodAnalyser moodAnalyser10 = MoodAnalyserFactory.CreateMoodAnalyser("I am in Happy Mood");
+            bool isEqual = moodAnalyser9.Equals(moodAnalyser10);
+            Console.WriteLine($"Are the MoodAnalyser objects equal? {isEqual}");
+
 
 
         }
